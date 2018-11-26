@@ -1,0 +1,19 @@
+.reserve-container {
+  margin-top: 80px;
+  padding: 2.2em;
+  background-color: $c-point1;
+
+  h3 {
+    font-size: 1.75em;
+    margin-bottom: .5em;
+  }
+
+  p {
+    margin-bottom: 1.5em;
+  }
+}
+
+
+.reserve-form {
+  overflow-y: scroll;
+}

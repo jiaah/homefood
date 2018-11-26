@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,400');
+
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.f-en {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+body {
+  font-size: 16px;
+  color: #605E5E;
+  font-weight: 300;
+  line-height: 1.25em;
+
+  @include for-tablet-landscape-up {
+    font-size: 1.15em;
+  }
+}
+
+/* ------ Size ------ */
+.f-mini {
+  font-size: .9em;
+}
+
+.f-small {
+  font-size: 1.1em;
+}
+
+.f-regular {
+  font-size: 1.3em;
+}
+
+.f-large {
+  font-size: 1.5em;
+}
+
+.f-xl {
+  font-size: 1.7em;
+}
+
+.f-xxl {
+  font-size: 2.5em;
+}
+
+/* ------ Weight ------ */
+.fw3 {
+  font-weight: 300;
+}
+
+.fw4 {
+  font-weight: 400;
+}
+
+.fw5 {
+  font-weight: 500;
+}
+
+.fw6 {
+  font-weight: 600;
+}
+
+.b {
+  font-weight: bold;
+}
+
+/* ------ Text ------ */
+.ttu {
+  text-transform: uppercase;
+}
+
+.tc {
+  text-align: center;
+}
+
+.td-none {
+  text-decoration: none;
+}
+
+/* ------ Text Space ------ */
+.lh-1 {
+  line-height: 1.2em;
+}
+
+.lh-2 {
+  line-height: 1.5em;
+}
+
+.lh-3 {
+  line-height: 1.8em;
+}
+
+.ls-1 {
+  letter-spacing: .8px;
+}
