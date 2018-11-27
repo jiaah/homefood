@@ -121,7 +121,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       template: './public/index.html',
-      favicon: './public/favicons/favicon.ico',
+      favicon: './client/assets/favicons/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[chunkhash].css',
