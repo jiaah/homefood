@@ -1,3 +1,10 @@
+# Compiled Files
+public/dist/**
+
+# Testing Files
+flow-typed/npm/**
+coverage/
+
 # Logs
 logs
 *.log
