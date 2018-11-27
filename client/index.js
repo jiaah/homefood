@@ -6,6 +6,8 @@ import createHistory from 'history/createBrowserHistory';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Store from './store';
 import Routes from './routes';
+import './styles/main.scss';
+
 import { firebase } from './src/firebase/firebase';
 
 const root = document.createElement('div');
