@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://jin827.github.io/homemeal/",
+  "homepage": "https://jin827.github.io/homefood/",
   "engines": {
     "node": "8.11.1",
     "npm": "6.1.0"
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jin827/homemeal.git"
+    "url": "git+https://github.com/Jin827/homefood.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jin827/homemeal/issues"
+    "url": "https://github.com/Jin827/homefood/issues"
   },
   "dependencies": {
     "@material-ui/core": "^3.1.2",
