@@ -2,6 +2,7 @@ import React from 'react';
 /* --- Components --- */
 import Loader from './src/shared/loader';
 // import './firebase/firebase';
+import './styles/main.scss';
 
 const Nav = Loader({
   loader: () => import('./src/components/nav' /* webpackChunkName: 'Nav' */),
