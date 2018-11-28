@@ -13,6 +13,7 @@
     "precommit": "lint-staged",
     "dev": "npm-run-all --parallel dev:*",
     "dev:client": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
+    "prod:client": "cross-env NODE_ENV=production webpack --config=webpack.prod.js --watch",
     "build:prod": "cross-env NODE_ENV=production webpack --config=webpack.prod.js",
     "test:client": "cross-env NODE_ENV=test jest --config ./client/jest.config.js --coverage --watch",
     "webpack-analyse": "cross-env NODE_ENV=test webpack --profile --json > stats.json",

@@ -3,10 +3,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 const TerserPlugin = require('terser-webpack-plugin');
 // const ManifestPlugin = require('webpack-manifest-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
-
 const BrotliPlugin = require('brotli-webpack-plugin');
-
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -40,8 +37,7 @@ const config = {
   },
   plugins: [
     new BrotliPlugin(),
-    // new ManifestPlugin({basePath: '`${__dirname}/public/dist`'}),
-    // new CopyWebpackPlugin([{ from: `${__dirname}/client/assets`, to: `${__dirname}/public/dist` }])
+    // new ManifestPlugin({ basePath: `${__dirname}/public/dist` }),
   ],
 };
 
