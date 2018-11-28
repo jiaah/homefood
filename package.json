@@ -9,12 +9,34 @@
     "npm": "6.1.0"
   },
   "scripts": {
+    "webpack-init": "webpack-dev-server --config=webpack.dev.js",
+    "precommit": "lint-staged",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:client": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
+    "build:prod": "cross-env NODE_ENV=production webpack --config=webpack.prod.js",
+    "test:client": "cross-env NODE_ENV=test jest --config ./client/jest.config.js --coverage --watch",
     "webpack-analyse": "cross-env NODE_ENV=test webpack --profile --json > stats.json",
-    "build:prod": "cross-env NODE_ENV=production PUBLIC_URL=yuchung webpack --config=webpack.prod.js",
-    "start": "cross-env NODE_ENV=production node server/server.js",
-    "heroku-postbuild": "npm run build:prod",
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d public/dist"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.{js,jsx,json}": [
+        "eslint --fix",
+        "prettier --parser flow --write",
+        "git add"
+      ],
+      "**/*.{scss}": [
+        "prettier --parser flow --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      ".*/dist",
+      ".*/node_modules",
+      "./package.json",
+      "./package-lock.json"
+    ]
   },
   "repository": {
     "type": "git",
@@ -78,7 +100,6 @@
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-hot-middleware": "^2.22.3",
-    "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {

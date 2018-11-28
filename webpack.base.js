@@ -6,6 +6,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const babelConfig = require('./.babelrc.js');
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -90,10 +91,6 @@ module.exports = {
           name: devMode ? '[name].[ext]' : '[name].[hash].[ext]',
         },
       },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader',
-      },
     ],
   },
   optimization: {
@@ -121,13 +118,16 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       template: './public/index.html',
-      favicon: './client/assets/favicons/favicon.ico',
+      favicon: './static/favicons/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[chunkhash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[chunkhash].css',
     }),
     new CaseSensitivePathsPlugin(),
+    new CopyWebpackPlugin([
+      { from: `${__dirname}/static`, to: `${__dirname}/public/dist` },
+    ]),
     isTest
       ? new BundleAnalyzerPlugin({
           generateStatsFile: true,
