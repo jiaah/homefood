@@ -7,11 +7,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const babelConfig = require('./.babelrc.js');
 
 const NODE_ENV = process.env.NODE_ENV;
 const devMode = NODE_ENV !== 'production';
 const isTest = NODE_ENV === 'test';
+
+const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackAssetsManifest = require('webpack-assets-manifest');
+const AssetsPlugin = require('assets-webpack-plugin');
+const babelConfig = require('./.babelrc.js');
 
 module.exports = {
   output: {
@@ -128,6 +132,16 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: `${__dirname}/static`, to: `${__dirname}/public/dist` },
     ]),
+    // new ManifestPlugin({
+    //   basePath: `${__dirname}/static`,
+    //   fileName: 'manifest.json',
+    //   writeToFileEmit: true,
+    //   seed: {},
+    // }),
+    // new WebpackAssetsManifest({
+    //   publicPath: true,
+    // }),
+    // new AssetsPlugin({ includeManifest: 'manifest' }),
     isTest
       ? new BundleAnalyzerPlugin({
           generateStatsFile: true,
