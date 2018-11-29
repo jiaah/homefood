@@ -844,6 +844,20 @@ header {
 
 .reserve-form {
   overflow-y: scroll; }
+  .reserve-form .form {
+    margin-top: .2em;
+    margin-bottom: .2em; }
+    @media (min-width: 600px) {
+      .reserve-form .form {
+        margin-top: .6em;
+        margin-bottom: .6em; } }
+    @media (min-width: 1480px) {
+      .reserve-form .form {
+        margin-top: .8em;
+        margin-bottom: .8em; } }
+
+#modal-title {
+  margin-bottom: 0; }
 
 .homeboard {
   width: 80%;
@@ -899,4 +913,4 @@ footer {
       margin-top: 8em; } }
 
 
-/*# sourceMappingURL=4.8262bf662896f21f6155.css.map*/
+/*# sourceMappingURL=4.a3a395120e19275ecc06.css.map*/
