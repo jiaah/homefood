@@ -767,10 +767,15 @@ header {
   top: 52%;
   padding-left: 1em;
   padding-right: 1em; }
+  @media (min-width: 600px) {
+    .header-text--box {
+      top: 53%;
+      padding-left: 4em;
+      padding-right: 4em; } }
   @media (min-width: 900px) {
     .header-text--box {
-      padding-left: 6em;
-      padding-right: 4em; } }
+      top: 55%;
+      padding-left: 6em; } }
   @media (min-width: 1480px) {
     .header-text--box {
       left: 5%; } }
@@ -894,4 +899,4 @@ footer {
       margin-top: 8em; } }
 
 
-/*# sourceMappingURL=4.521f94e43f87bab7fb48.css.map*/
+/*# sourceMappingURL=4.8262bf662896f21f6155.css.map*/
