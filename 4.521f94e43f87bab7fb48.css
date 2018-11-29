@@ -648,10 +648,10 @@ h1 img {
   margin-bottom: 1.2em; }
   @media (min-width: 900px) {
     h1 img {
-      width: 320px; } }
-  @media (min-width: 1200px) {
+      width: 350px; } }
+  @media (min-width: 1480px) {
     h1 img {
-      width: 400px; } }
+      width: 420px; } }
 
 h2 {
   font-size: 1.4em;
@@ -661,7 +661,7 @@ h2 {
   text-shadow: 0.4px 0.4px rgba(41, 40, 40, 0.815);
   letter-spacing: .5px;
   line-height: 1.2em; }
-  @media (min-width: 1200px) {
+  @media (min-width: 1480px) {
     h2 {
       font-size: 1.7em;
       line-height: 1.25em; } }
@@ -671,7 +671,7 @@ h3 {
   color: #ed6802;
   margin-bottom: .75em;
   line-height: 1.13636364em; }
-  @media (min-width: 1200px) {
+  @media (min-width: 1480px) {
     h3 {
       font-size: 1.75em; } }
 
@@ -764,10 +764,10 @@ header {
 
 .header-text--box {
   position: absolute;
-  top: 48%;
+  top: 52%;
   padding-left: 1em;
   padding-right: 1em; }
-  @media (min-width: 750px) {
+  @media (min-width: 900px) {
     .header-text--box {
       padding-left: 6em;
       padding-right: 4em; } }
@@ -894,4 +894,4 @@ footer {
       margin-top: 8em; } }
 
 
-/*# sourceMappingURL=4.b5a671188416fe8c8113.css.map*/
+/*# sourceMappingURL=4.521f94e43f87bab7fb48.css.map*/
