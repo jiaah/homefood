@@ -33,9 +33,6 @@ const config = {
         },
       }),
     ],
-    runtimeChunk: {
-      name: 'manifest',
-    },
   },
   plugins: [new BrotliPlugin()],
 };

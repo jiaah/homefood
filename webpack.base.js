@@ -12,9 +12,9 @@ const NODE_ENV = process.env.NODE_ENV;
 const devMode = NODE_ENV !== 'production';
 const isTest = NODE_ENV === 'test';
 
-const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
-const AssetsPlugin = require('assets-webpack-plugin');
+// const ManifestPlugin = require('webpack-manifest-plugin');
+// const WebpackAssetsManifest = require('webpack-assets-manifest');
+// const AssetsPlugin = require('assets-webpack-plugin');
 const babelConfig = require('./.babelrc.js');
 
 module.exports = {
