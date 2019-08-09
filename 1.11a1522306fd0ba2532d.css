@@ -763,7 +763,7 @@ button {
   font-size: 0.8em; }
 
 h1 {
-  font-size: 1.4em;
+  font-size: 1.35em;
   margin-top: .3em;
   margin-bottom: .6em;
   color: #ffffff;
@@ -939,8 +939,8 @@ h4 {
 .yuch-logo {
   width: 235px;
   height: auto;
-  margin-top: .5em;
-  margin-bottom: .9em; }
+  margin-top: .8em;
+  margin-bottom: .8em; }
   @media (min-width: 1480px) {
     .yuch-logo {
       width: 350px;
@@ -1017,7 +1017,7 @@ header {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  padding: 13px 28px 12px 28px; }
+  padding: 11px 22px 10px 22px; }
 
 .header--price {
   color: white;
@@ -1029,15 +1029,22 @@ header {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  padding: 20px; }
+  padding: 16px 20px; }
 
-.point1 {
-  font-size: 1.7em; }
+.header--no-msg {
+  font-size: 1.8em; }
   @media (min-width: 1480px) {
-    .point1 {
+    .header--no-msg {
+      font-size: 1.7em;
+      line-height: 1.25em; } }
+
+.header--text {
+  font-size: 1.65em; }
+  @media (min-width: 1480px) {
+    .header--text {
       font-size: 2.5em; } }
 
-.point2 {
+.header--text--point-color {
   color: #f8b37d; }
 
 /* ------ Home Main ------ */
@@ -1242,36 +1249,37 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 450px;
-  margin: 3em auto; }
+  width: 360px;
+  margin: 3em auto;
+  overflow-x: scroll; }
   @media (min-width: 1000px) {
     .verify-user--container {
-      width: 900px; } }
+      width: 710px; } }
 
 .verify-user--paper {
-  width: 450px; }
+  width: 350px; }
   @media (min-width: 1000px) {
     .verify-user--paper {
-      width: 900px; } }
+      width: 700px; } }
 
 .verify-user--hr {
   border-bottom: 1px solid #e2e2e2;
   position: absolute;
-  width: 450px; }
+  width: 350px; }
   @media (min-width: 1000px) {
     .verify-user--hr {
-      width: 900px; } }
+      width: 700px; } }
 
 .verify-user--label {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
   font-size: .9em;
   font-weight: 300;
   vertical-align: middle; }
   @media (min-width: 1000px) {
     .verify-user--label {
-      padding-left: 4em;
-      padding-right: 4em; } }
+      padding-left: 3em;
+      padding-right: 3em; } }
 
 .autoComplete-item {
   cursor: pointer;
@@ -1392,4 +1400,4 @@ footer {
     margin-top: 9px; } }
 
 
-/*# sourceMappingURL=1.92d9f1bead5125183f91.css.map*/
+/*# sourceMappingURL=1.11a1522306fd0ba2532d.css.map*/
