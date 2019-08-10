@@ -1223,7 +1223,7 @@ footer {
       width: 500px; } }
 
 .keep-me-logged-in {
-  margin: -20px 14px 20px 14px;
+  margin: -20px auto 20px auto;
   padding-bottom: 35px;
   border-bottom: 0.5px solid #e2e2e2;
   width: 300px; }
@@ -1399,4 +1399,4 @@ footer {
     margin-top: 9px; } }
 
 
-/*# sourceMappingURL=1.9e49bdb0972e210d4807.css.map*/
+/*# sourceMappingURL=1.f9f06db5f5fbc1a1a252.css.map*/
