@@ -12,7 +12,7 @@ module.exports = {
         },
         loose: true,
         modules: isTest ? 'commonjs' : false,
-        debug: isTest ? false : true,
+        debug: !isTest,
       },
     ],
     'react',
@@ -59,11 +59,13 @@ module.exports = {
       },
       '@material-ui/core/icons',
     ],
-    isTest ? 'dynamic-import-node' : null,
-  ].filter(Boolean),
+  ],
   env: {
     development: {
       plugins: ['react-hot-loader/babel'],
+    },
+    test: {
+      plugins: ['dynamic-import-node'],
     },
   },
 };

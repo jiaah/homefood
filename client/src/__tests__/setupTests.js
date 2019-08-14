@@ -1,10 +1,29 @@
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from 'react';
+import 'jest-dom/extend-expect';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import {
+  render,
+  fireEvent,
+  cleanup,
+  queryByAttribute,
+  waitForElement,
+  wait,
+} from 'react-testing-library';
 
-import requestAnimationFrame from './tempPolyfills';
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
-configure({ adapter: new Adapter(), disableLifecycleMethods: true });
-
-HTMLCanvasElement.prototype.getContext = () => {
-  // return whatever getContext has to return
+export {
+  render,
+  fireEvent,
+  cleanup,
+  queryByAttribute,
+  waitForElement,
+  wait,
+  mockStore,
 };
+export default React;
+
+// Get rid off HTMLCanvasElement.prototype.getContext, and canvas errors.
+HTMLCanvasElement.prototype.getContext = jest.fn();

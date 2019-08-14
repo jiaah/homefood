@@ -1,0 +1,83 @@
+/* ------ Login ------ */
+.login-container {
+  height: calc(100vh - 240px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: 3em auto;
+
+  @include for-desktop-up {
+    width: 700px;
+  }
+}
+
+.login-btn {
+  width: 300px;
+
+  @include for-desktop-up {
+    width: 500px;
+  }
+}
+
+.keep-me-logged-in {
+  margin: -20px auto 20px auto;
+  padding-bottom: 35px;
+  border-bottom: .5px solid $light-grey;
+  width: 300px;
+
+  @include for-desktop-up {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.login-forgot {
+  font-size: .885em;
+}
+
+/* ------ Forgot username/password ------ */
+.verify-user--container {
+  height: calc(100vh - 240px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 360px;
+  margin: 3em auto;
+
+  @include for-desktop-up {
+    width: 710px;
+  }
+}
+
+.verify-user--paper {
+  width: 350px;
+
+  @include for-desktop-up {
+    width: 700px;
+  }
+}
+
+.verify-user--hr {
+  border-bottom: 1px solid $light-grey;
+  position: absolute;
+  width: 350px;
+
+  @include for-desktop-up {
+    width: 700px;
+  }
+}
+
+.verify-user--label {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: .9em;
+  font-weight: 300;
+  vertical-align: middle;
+
+  @include for-desktop-up {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+}

@@ -1,20 +1,65 @@
-import React from 'react';
-/* --- Components --- */
-import Nav from '../nav';
+import React, { useState, useEffect } from 'react';
+import IconButton from '../../shared/form/iconButton';
+import {
+  headerMsgA,
+  headerMsgB,
+  headerMsgC,
+  headerMsgD,
+} from '../../data/message';
 
-const Header = () => (
-  <header>
-    <Nav />
-    <div className="header-text--box">
-      <h2>
-        <span className="point1 f-en lh-3">NO MSG&#33;</span>
-        <br />
-        오늘도 열심히 일한 당신에게 <br />
-        당신만을 위한 <span className="point2">착한 가격의 집밥을</span>
-        선물하세요&#46;
-      </h2>
-    </div>
-  </header>
-);
+const Header = () => {
+  const messages = [headerMsgA, headerMsgB, headerMsgC, headerMsgD];
+  // to stop header messages auto change when user clicks an arrow button
+  const [arrowBtnTouched, setArrowBtnTouched] = useState(false);
+  const [msg, setMsg] = useState(0);
+
+  let timer;
+  if (!arrowBtnTouched) {
+    timer = setTimeout(() => {
+      if (msg < messages.length - 1) return setMsg(msg + 1);
+      return setMsg(0);
+    }, 4000);
+  }
+
+  useEffect(
+    () => () => {
+      clearTimeout(timer);
+    },
+    [],
+  );
+
+  const handleLeftButtonClick = () => {
+    if (msg !== 0) setMsg(msg - 1);
+    if (!arrowBtnTouched) setArrowBtnTouched(true);
+  };
+  const handleRightButtonClick = () => {
+    if (msg !== messages.length - 1) setMsg(msg + 1);
+    if (!arrowBtnTouched) setArrowBtnTouched(true);
+  };
+
+  return (
+    <header>
+      <div className="flex justify-between header--center">
+        <IconButton
+          handleClick={() => handleLeftButtonClick()}
+          name="arrowLeft"
+          width="27"
+          height="27"
+          viewBox="0 0 24 24"
+          color="white"
+        />
+        <IconButton
+          handleClick={() => handleRightButtonClick()}
+          name="arrowRight"
+          width="27"
+          height="27"
+          viewBox="0 0 24 24"
+          color="white"
+        />
+      </div>
+      <React.Fragment>{messages[msg]}</React.Fragment>
+    </header>
+  );
+};
 
 export default Header;

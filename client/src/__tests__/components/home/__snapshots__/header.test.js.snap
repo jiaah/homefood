@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders correctly 1`] = `
+<header>
+  <div
+    class="header-text--box"
+  >
+    <h1>
+      <span
+        class="point1 f-en lh-3"
+      >
+        NO MSG!
+      </span>
+      <br />
+      오늘도 열심히 일한 당신에게 
+      <br />
+      당신만을 위한 
+      <span
+        class="point2"
+      >
+        착한 가격의 집밥을
+      </span>
+      선물하세요.
+    </h1>
+  </div>
+</header>
+`;

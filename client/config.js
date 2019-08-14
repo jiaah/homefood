@@ -1,7 +1,12 @@
-const IS_DEBUG_MODE = !!window.location.href.indexOf('localhost');
+let IS_DEV_MODE = false;
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  IS_DEV_MODE = true;
+}
+
+const URL = IS_DEV_MODE
+  ? 'http://localhost:9080/api'
+  : 'https://yuchung.herokuapp.com';
 
 module.exports = {
-  API_HOST: IS_DEBUG_MODE
-    ? 'http://localhost:9080'
-    : 'https://yuchung.herokuapp.com/',
+  API_HOST: URL,
 };

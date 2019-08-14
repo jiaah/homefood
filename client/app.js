@@ -1,21 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
 /* --- Components --- */
+import NavContainer from './src/components/nav/navContainer';
 import Loader from './src/shared/loader';
 import './styles/main.scss';
 
-const Nav = Loader({
-  loader: () => import('./src/components/nav' /* webpackChunkName: 'Nav' */),
+const MessageBox = Loader({
+  loader: () =>
+    import('./src/shared/message/messageContainer' /* webpackChunkName: 'MessageBox' */),
 });
 
-const App = props => {
-  const isHomepage = props.history.location.pathname === '/';
+export const App = ({ messageShow, children }) => (
+  <div id="app absolute">
+    <NavContainer />
+    {messageShow !== null && (
+      <div className="flex justify-center">
+        <MessageBox />
+      </div>
+    )}
+    {children}
+  </div>
+);
 
-  return (
-    <div id="app">
-      {props.children}
-      {!isHomepage ? <Nav /> : null}
-    </div>
-  );
-};
+const mapPropsToState = state => ({
+  messageShow: state.message.show,
+});
 
-export default App;
+export default connect(
+  mapPropsToState,
+  null,
+)(App);

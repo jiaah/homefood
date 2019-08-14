@@ -1,14 +1,14 @@
 import React from 'react';
 import { TextField, FormControl, Input, InputLabel } from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
 /* --- Components --- */
 import TextMaskCustom from './textMaskCustom';
-import Buttons from '../../shared/buttons';
+import Button from '../../shared/form/button';
 
-const ReserveForm = ({
+export const ReserveForm = ({
   reserveInfo,
   inThreeDays,
   submitBtnClicked,
-  handleClose,
   handleChange,
   handleSubmit,
 }) => {
@@ -25,11 +25,12 @@ const ReserveForm = ({
   );
 
   return (
-    <div className="reserve-form">
-      <div className="form">
+    <form data-testid="reserve-form">
+      <div className="mb2">
         <TextField
           id="name"
           label="이름"
+          placeholder="유청"
           value={name}
           InputLabelProps={{ shrink: true }}
           margin="normal"
@@ -37,7 +38,6 @@ const ReserveForm = ({
           error={submitBtnClicked && name === ''}
           onChange={ev => handleChange(ev)}
           required={true}
-          className="input-name"
         />
         <FormControl margin="normal" fullWidth>
           <InputLabel htmlFor="formatted-text-mask-input">연락처 *</InputLabel>
@@ -49,12 +49,12 @@ const ReserveForm = ({
             error={submitBtnClicked && inValidContactValue}
             onChange={ev => handleChange(ev)}
             required={true}
-            className="input-contact"
           />
         </FormControl>
         <TextField
           id="number"
           label="인원수"
+          placeholder="80"
           value={number}
           error={submitBtnClicked && number === ''}
           onChange={ev => handleChange(ev)}
@@ -65,11 +65,14 @@ const ReserveForm = ({
           margin="normal"
           fullWidth
           required={true}
-          className="input-number"
+          InputProps={{
+            endAdornment: <InputAdornment position="end">명</InputAdornment>,
+          }}
         />
         <TextField
           id="place"
           label="장소"
+          placeholder="경주시 황성동 1071-1번지 유청"
           value={place}
           InputLabelProps={{ shrink: true }}
           margin="normal"
@@ -79,7 +82,6 @@ const ReserveForm = ({
           helperText="경주시 내 전지역 배달 가능합니다."
           onChange={ev => handleChange(ev)}
           required={true}
-          className="input-place"
         />
         <TextField
           id="date"
@@ -92,7 +94,6 @@ const ReserveForm = ({
           helperText="최소 3일 전일 경우에만 예약 진행 가능합니다."
           onChange={ev => handleChange(ev)}
           required={true}
-          className="input-date"
         />
         <TextField
           id="time"
@@ -108,18 +109,16 @@ const ReserveForm = ({
           helperText="( 예약 가능 시간 )  11:00 - 20:00"
           onChange={ev => handleChange(ev)}
           required={true}
-          className="input-time"
         />
       </div>
-      <div>
-        <Buttons
-          handleFirstButtonClick={handleSubmit}
-          handleSecondButtonClick={handleClose}
-          firstButtonName="예약완료"
-          secondButtonName="닫기"
-        />
-      </div>
-    </div>
+      <Button
+        typeValue="submit"
+        variantValue="contained"
+        buttonName="예약완료"
+        width="medium"
+        handleButtonClick={ev => handleSubmit(ev)}
+      />
+    </form>
   );
 };
 

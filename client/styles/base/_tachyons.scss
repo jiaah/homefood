@@ -41,6 +41,10 @@
   justify-content: space-around;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -174,6 +178,11 @@
   padding-right: 1em;
 }
 
+.pw2 {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 .pw3 {
   padding-left: 3em;
   padding-right: 3em;
@@ -266,6 +275,12 @@
   margin-left: 1em;
   margin-right: 1em;
 }
+
+.mw2 {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
 
 .mw3 {
   margin-left: 3em;
@@ -379,9 +394,7 @@
 }
 
 .bb {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: rgb(221, 234, 250);
+  border-bottom: 1px solid $c-point1;
 }
 
 .bt {

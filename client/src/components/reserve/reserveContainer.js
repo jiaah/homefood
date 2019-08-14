@@ -3,21 +3,18 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import compose from 'recompose/compose';
+import { bindActionCreators } from 'redux';
 /* --- Components --- */
 import Loader from '../../shared/loader';
 import * as moment from '../../shared/moment';
+import ReserveMessage from './reserveMessage';
+import Modal from '../../shared/modal';
 /* --- Actions --- */
-import { reserve, resetReserve } from '../../actions/reserveAction';
-import { showModalAction, hideModalAction } from '../../actions/modalAction';
+import * as reserveActions from '../../actions/reserveAction';
+import * as modalActions from '../../actions/modalAction';
 
-/* react/no-unused-state: false */
-const SimpleModal = Loader({
-  loader: () =>
-    import('../../shared/simpleModal' /* webpackChunkName: 'simpleModal' */),
-});
-const SwitchReserve = Loader({
-  loader: () =>
-    import('./switchReserve' /* webpackChunkName: 'switchReserve' */),
+const Form = Loader({
+  loader: () => import('./reserveForm' /* webpackChunkName: 'reserveForm' */),
 });
 
 const styles = theme => ({
@@ -32,12 +29,9 @@ const styles = theme => ({
     },
   },
 });
-class ReserveContainer extends Component {
+export class ReserveContainer extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
     this.state = {
       submitBtnClicked: false,
       name: '',
@@ -46,18 +40,44 @@ class ReserveContainer extends Component {
       place: '',
       date: moment.inThreeDays,
       time: '12:30',
+      isReserved: '',
     };
   }
 
+  showModal = () => this.props.modalActions.showModal();
+
+  closeModal = async () => {
+    this.props.modalActions.hideModal();
+    await this.props.reserveActions.resetReserve();
+    return this.setState({
+      submitBtnClicked: false,
+      name: '',
+      contact: '(0  )    -    ',
+      number: '',
+      place: '',
+      date: moment.inThreeDays,
+      time: '12:30',
+      isReserved: '',
+    });
+  };
+
   handleChange = ({ target: { id, value } }) => {
     this.setState({ [id]: value });
+  };
+
+  handleReserveMessage = res => {
+    if (!res.error) {
+      return this.setState({ isReserved: 'success' });
+    }
+    return this.setState({ isReserved: 'error' });
   };
 
   handleSubmit = async ev => {
     await ev.preventDefault();
     await this.setState({ submitBtnClicked: true });
 
-    const { onReserve } = this.props;
+    const { reserveActions } = this.props;
+
     const { name, contact, number, place, date, time } = this.state;
     const reserveInfo = {
       name,
@@ -82,68 +102,65 @@ class ReserveContainer extends Component {
     ) {
       return null;
     }
-    return onReserve(reserveInfo);
+
+    const res = await reserveActions.reserve(reserveInfo);
+    return this.handleReserveMessage(res);
   };
 
   render() {
-    const { apiRequest, showModal, classes } = this.props;
-    const { submitBtnClicked } = this.state;
+    const { classes } = this.props;
+    const { submitBtnClicked, isReserved } = this.state;
     const { inThreeDays } = moment;
 
     return (
+      // id is for Nav Link
       <div id="reserve">
         <div className="tc white reserve-container">
-          <h3 className="white f-en b">Reservation</h3>
-          <p>기업체 각종 행사, 모임 단체 식사 주문받습니다.</p>
+          <h3 className="white f-en b" data-testid="reserve-title">
+            Reservation
+          </h3>
+          <p>성당&#44; 교회 각종 행사 모임 출장뷔페 주문받습니다.</p>
           <Button
-            onClick={() => this.props.showModalAction()}
+            onClick={this.showModal}
             variant="contained"
-            color="secondary"
-            className={`btn--reserve-modal ${classes.bigButton}`}
+            color="primary"
+            className={classes.bigButton}
+            data-testid="reserve-modal--button"
           >
             예약하기
           </Button>
         </div>
-        {showModal && (
-          <SimpleModal
-            component={
-              <SwitchReserve
-                apiRequest={apiRequest}
+        <Modal
+          title="Reservation"
+          handleClose={this.closeModal}
+          component={
+            isReserved === '' ? (
+              <Form
                 reserveInfo={this.state}
                 inThreeDays={inThreeDays}
                 submitBtnClicked={submitBtnClicked}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
-                handleClose={() => this.props.hideModalAction()}
               />
-            }
-          />
-        )}
+            ) : (
+              <ReserveMessage isReserved={isReserved} />
+            )
+          }
+        />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  apiRequest: state.reserve.apiRequest,
-  showModal: state.modal.show,
-});
-
 const mapDispatchToProps = dispatch => ({
-  onReserve: reserveInfo => dispatch(reserve(reserveInfo)),
-  onResetReserve: () => dispatch(resetReserve()),
-  showModalAction: () => dispatch(showModalAction()),
-  hideModalAction: () => {
-    dispatch(hideModalAction());
-    dispatch(resetReserve());
-  },
+  modalActions: bindActionCreators(modalActions, dispatch),
+  reserveActions: bindActionCreators(reserveActions, dispatch),
 });
 
-export const Unwrapped = ReserveContainer;
 export default compose(
   withStyles(styles),
   connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps,
   ),
 )(ReserveContainer);

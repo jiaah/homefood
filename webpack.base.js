@@ -12,9 +12,6 @@ const NODE_ENV = process.env.NODE_ENV;
 const devMode = NODE_ENV !== 'production';
 const isTest = NODE_ENV === 'test';
 
-// const ManifestPlugin = require('webpack-manifest-plugin');
-// const WebpackAssetsManifest = require('webpack-assets-manifest');
-// const AssetsPlugin = require('assets-webpack-plugin');
 const babelConfig = require('./.babelrc.js');
 
 module.exports = {
@@ -26,7 +23,12 @@ module.exports = {
     path: path.resolve(__dirname, 'public/dist'),
     publicPath: '/',
   },
-  resolve: { extensions: ['.js', '.jsx', '.json'] },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.scss', 'css'],
+  },
+  node: {
+    fs: 'empty',
+  },
   module: {
     rules: [
       {
@@ -49,7 +51,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              minimze: true,
+              sourceMap: devMode,
               importLoaders: 1,
             },
           },
@@ -62,13 +65,13 @@ module.exports = {
                   browsers: 'last 2 versions',
                 }),
               ],
-              sourceMap: true,
+              sourceMap: devMode,
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
+              sourceMap: devMode,
               includePaths: ['client/styles/main.scss'],
             },
           },
@@ -98,11 +101,13 @@ module.exports = {
     ],
   },
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
           priority: -10,
         },
         default: {
@@ -132,16 +137,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: `${__dirname}/static`, to: `${__dirname}/public/dist` },
     ]),
-    // new ManifestPlugin({
-    //   basePath: `${__dirname}/static`,
-    //   fileName: 'manifest.json',
-    //   writeToFileEmit: true,
-    //   seed: {},
-    // }),
-    // new WebpackAssetsManifest({
-    //   publicPath: true,
-    // }),
-    // new AssetsPlugin({ includeManifest: 'manifest' }),
+
     isTest
       ? new BundleAnalyzerPlugin({
           generateStatsFile: true,

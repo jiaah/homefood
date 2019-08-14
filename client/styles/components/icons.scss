@@ -1,0 +1,45 @@
+.svg-icon {
+  display: inline-block;
+  vertical-align: middle;
+
+}
+
+.icon-filledLock,
+.icon-lock,
+.icon-visibility,
+.icon-visibilityOff,
+.icon-phone,
+.icon-user,
+.icon-filledUser,
+.icon-email,
+.icon-catering,
+.icon-address {
+  margin-top: 8px;
+}
+
+.icon-bankAccount {
+  position: relative;
+  top: -2px;
+  left: 2px;
+}
+
+.icon-message--warning {
+  margin-top: -.15em;
+  color: $c-red;
+
+  @include for-desktop-up {
+    margin-top: -.35em;
+  }
+}
+
+.icon-message--info {
+  margin-top: -.91px;
+}
+
+.icon-print {
+  margin-top: 4px;
+}
+
+.icon-close {
+  margin-top: -.5em;
+}
