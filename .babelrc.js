@@ -6,10 +6,6 @@ module.exports = {
       'env',
       {
         useBuiltIns: 'usage',
-        targets: {
-          browsers: ['last 2 versions', 'safari >= 7'],
-          node: 'current',
-        },
         loose: true,
         modules: isTest ? 'commonjs' : false,
         debug: !isTest,
