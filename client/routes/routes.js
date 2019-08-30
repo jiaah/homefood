@@ -4,7 +4,7 @@ import { hot, setConfig } from 'react-hot-loader';
 import { withRouter } from 'react-router';
 /* --- Components --- */
 import App from '../app';
-import Loader from '../src/shared/loader';
+import Loader from '../src/components/loader';
 /* --- Routes --- */
 import UserGuards from './userGuards';
 import AdminGuards from './adminGuards';
@@ -28,7 +28,7 @@ const Reset = Loader({
 
 const UserAccountForAdmin = Loader({
   loader: () =>
-    import('../src/components/admin/userAccounts/userAccountContainer' /* webpackChunkName: 'UserAccount' */),
+    import('../src/components/admin/userAccount/userAccountContainer' /* webpackChunkName: 'UserAccount' */),
 });
 
 const BankAccount = Loader({
@@ -51,14 +51,19 @@ const UserAccount = Loader({
     import('../src/components/users/userAccount/userAccountContainer' /* webpackChunkName: 'UserAccount' */),
 });
 
+const UserDailyCatering = Loader({
+  loader: () =>
+    import('../src/components/users/catering/cateringContainer' /* webpackChunkName: 'UserAccount' */),
+});
+
 const NoMatch = Loader({
   loader: () =>
     import('../src/components/noMatch' /* webpackChunkName: 'NoMatch' */),
 });
 
-const routes = props => (
+const routes = () => (
   <div>
-    <App history={props.history} />
+    <App />
     <Switch>
       <Route exact path="/" component={Home} />
       <LoggedOutRoute path="/login" component={Login} />
@@ -89,6 +94,11 @@ const routes = props => (
         path="/user/account/me"
         component={UserGuards(UserAccount)}
       />
+      <Route
+        exact
+        path="/user/catering"
+        component={UserGuards(UserDailyCatering)}
+      />
       <Route component={NoMatch} />
     </Switch>
   </div>
@@ -98,6 +108,7 @@ const routes = props => (
 setConfig({
   // set this flag to support SFC if patch is not landed
   pureSFC: true,
+  showReactDomPatchNotification: false,
 });
 
 const Routes =

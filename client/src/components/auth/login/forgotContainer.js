@@ -15,7 +15,7 @@ import FoundUsername from './foundUsernamePage';
 import * as authActions from '../../../actions/authAction';
 import * as messageActions from '../../../actions/messageAction';
 
-const ForgotContainer = ({
+export const ForgotContainer = ({
   authActions: {
     findUsernameWithEmail,
     findUsernameWithContact,

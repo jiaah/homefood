@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { getIn } from 'formik';
 import { withStyles } from '@material-ui/core/styles';
+import { getIn } from 'formik';
 
 const styles = theme => ({
   textField: {
@@ -30,27 +30,27 @@ const styles = theme => ({
   // [C,D,E] create/edit user account forms
   // [C] bank account, confirm admin password
   textFieldC: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 250,
   },
   textFieldD: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 118,
   },
   textFieldE: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 250,
     [theme.breakpoints.up('md')]: {
-      width: 604,
+      width: 570,
     },
   },
   // rate form : reservePrice
   textFieldF: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(3),
     width: 180,
   },
 });
@@ -119,6 +119,7 @@ const Input = ({
         className={classes[styleName]}
         helperText={isTouched && errorMessage}
         error={isTouched && Boolean(errorMessage)}
+        inputProps={{ 'data-testid': name, tabIndex: name }}
       />
     </React.Fragment>
   );

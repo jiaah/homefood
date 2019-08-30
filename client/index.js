@@ -9,7 +9,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import configureStore, { history } from './store';
 import Routes from './routes/routes';
-import Loading from './src/shared/loading';
+import Loading from './src/components/loading';
 
 const theme = createMuiTheme({
   palette: {

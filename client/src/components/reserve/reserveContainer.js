@@ -5,8 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import compose from 'recompose/compose';
 import { bindActionCreators } from 'redux';
 /* --- Components --- */
-import Loader from '../../shared/loader';
-import * as moment from '../../shared/moment';
+import Loader from '../loader';
+import * as moment from '../../helpers/moment';
 import ReserveMessage from './reserveMessage';
 import Modal from '../../shared/modal';
 /* --- Actions --- */
@@ -20,7 +20,7 @@ const Form = Loader({
 const styles = theme => ({
   bigButton: {
     color: '#ffffff',
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     width: '9em',
     paddingTop: '5px',
     paddingBottom: '5px',

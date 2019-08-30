@@ -9,27 +9,28 @@ Object {
         class="login-container"
       >
         <form
-          class="flex flex-column-m center"
+          class="flex flex-column-m items-center"
         >
           <div
-            class="MuiFormControl-root-7 MuiFormControl-marginNormal-8 Input-textField-1"
+            class="MuiFormControl-root MuiTextField-root Input-textField-1 MuiFormControl-marginNormal"
           >
             <label
-              class="MuiFormLabel-root-18 MuiFormLabel-required-23 MuiInputLabel-root-11 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-required Mui-required"
               data-shrink="true"
             >
               아이디
               <span
-                class="MuiFormLabel-asterisk-24"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
-                 *
+                 
+                *
               </span>
             </label>
             <div
-              class="MuiInputBase-root-38 MuiInput-root-25 MuiInput-underline-29 MuiInputBase-formControl-39 MuiInput-formControl-26 MuiInputBase-adornedStart-42"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"
             >
               <div
-                class="MuiInputAdornment-root-55 MuiInputAdornment-positionStart-57"
+                class="MuiInputAdornment-root MuiInputAdornment-positionStart"
               >
                 <svg
                   class="svg-icon icon-filledUser || ''"
@@ -49,33 +50,36 @@ Object {
               </div>
               <input
                 aria-invalid="false"
-                class="MuiInputBase-input-48 MuiInput-input-33 MuiInputBase-inputAdornedStart-53"
+                class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"
+                data-testid="username"
                 name="username"
                 required=""
+                tabindex="username"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <div
-            class="MuiFormControl-root-7 MuiFormControl-marginNormal-8 Input-textField-1"
+            class="MuiFormControl-root MuiTextField-root Input-textField-1 MuiFormControl-marginNormal"
           >
             <label
-              class="MuiFormLabel-root-18 MuiFormLabel-required-23 MuiInputLabel-root-11 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-required Mui-required"
               data-shrink="true"
             >
               비밀번호
               <span
-                class="MuiFormLabel-asterisk-24"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
-                 *
+                 
+                *
               </span>
             </label>
             <div
-              class="MuiInputBase-root-38 MuiInput-root-25 MuiInput-underline-29 MuiInputBase-formControl-39 MuiInput-formControl-26 MuiInputBase-adornedStart-42 MuiInputBase-adornedEnd-43"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd"
             >
               <div
-                class="MuiInputAdornment-root-55 MuiInputAdornment-positionStart-57"
+                class="MuiInputAdornment-root MuiInputAdornment-positionStart"
               >
                 <svg
                   class="svg-icon icon-filledLock || ''"
@@ -95,16 +99,19 @@ Object {
               </div>
               <input
                 aria-invalid="false"
-                class="MuiInputBase-input-48 MuiInput-input-33 MuiInputBase-inputType-51 MuiInput-inputType-36 MuiInputBase-inputAdornedStart-53 MuiInputBase-inputAdornedEnd-54"
+                class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd"
+                data-testid="password"
                 name="password"
                 required=""
+                tabindex="password"
                 type="password"
                 value=""
               />
               <div
-                class="MuiInputAdornment-root-55 MuiInputAdornment-positionEnd-58"
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
               >
                 <button
+                  aria-label="visibilityOff"
                   style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;"
                   type="button"
                 >
@@ -129,17 +136,17 @@ Object {
             </div>
           </div>
           <button
-            class="MuiButtonBase-root-86 MuiButton-root-60 MuiButton-contained-71 MuiButton-containedPrimary-72 MuiButton-raised-74 MuiButton-raisedPrimary-75 MuiButton-sizeSmall-83 login-btn FormButton-button-59"
+            class="MuiButtonBase-root MuiButton-root login-btn FormButton-button-69 MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall"
             tabindex="0"
             type="submit"
           >
             <span
-              class="MuiButton-label-61"
+              class="MuiButton-label"
             >
               로그인
             </span>
             <span
-              class="MuiTouchRipple-root-89"
+              class="MuiTouchRipple-root"
             />
           </button>
         </form>
@@ -147,18 +154,19 @@ Object {
           class="keep-me-logged-in"
         >
           <label
-            class="MuiFormControlLabel-root-96"
+            class="MuiFormControlLabel-root"
           >
             <span
-              class="MuiButtonBase-root-86 MuiIconButton-root-110 MuiSwitchBase-root-106 MuiCheckbox-root-100 MuiCheckbox-colorSecondary-105"
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-102 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
               data-testid="checkbox-login"
             >
               <span
-                class="MuiIconButton-label-115"
+                class="MuiIconButton-label"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root-116"
+                  class="MuiSvgIcon-root"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -168,18 +176,18 @@ Object {
                   />
                 </svg>
                 <input
-                  class="MuiSwitchBase-input-109"
+                  class="PrivateSwitchBase-input-105"
                   data-indeterminate="false"
                   type="checkbox"
-                  value="keepLoggedIn"
+                  value="keepUserLoggedIn"
                 />
               </span>
               <span
-                class="MuiTouchRipple-root-89"
+                class="MuiTouchRipple-root"
               />
             </span>
             <span
-              class="MuiTypography-root-125 MuiTypography-body1-134 MuiFormControlLabel-label-99"
+              class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
             >
               로그인 상태 유지
             </span>
@@ -210,27 +218,28 @@ Object {
       class="login-container"
     >
       <form
-        class="flex flex-column-m center"
+        class="flex flex-column-m items-center"
       >
         <div
-          class="MuiFormControl-root-7 MuiFormControl-marginNormal-8 Input-textField-1"
+          class="MuiFormControl-root MuiTextField-root Input-textField-1 MuiFormControl-marginNormal"
         >
           <label
-            class="MuiFormLabel-root-18 MuiFormLabel-required-23 MuiInputLabel-root-11 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-required Mui-required"
             data-shrink="true"
           >
             아이디
             <span
-              class="MuiFormLabel-asterisk-24"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
             >
-               *
+               
+              *
             </span>
           </label>
           <div
-            class="MuiInputBase-root-38 MuiInput-root-25 MuiInput-underline-29 MuiInputBase-formControl-39 MuiInput-formControl-26 MuiInputBase-adornedStart-42"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"
           >
             <div
-              class="MuiInputAdornment-root-55 MuiInputAdornment-positionStart-57"
+              class="MuiInputAdornment-root MuiInputAdornment-positionStart"
             >
               <svg
                 class="svg-icon icon-filledUser || ''"
@@ -250,33 +259,36 @@ Object {
             </div>
             <input
               aria-invalid="false"
-              class="MuiInputBase-input-48 MuiInput-input-33 MuiInputBase-inputAdornedStart-53"
+              class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"
+              data-testid="username"
               name="username"
               required=""
+              tabindex="username"
               type="text"
               value=""
             />
           </div>
         </div>
         <div
-          class="MuiFormControl-root-7 MuiFormControl-marginNormal-8 Input-textField-1"
+          class="MuiFormControl-root MuiTextField-root Input-textField-1 MuiFormControl-marginNormal"
         >
           <label
-            class="MuiFormLabel-root-18 MuiFormLabel-required-23 MuiInputLabel-root-11 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14"
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-required Mui-required"
             data-shrink="true"
           >
             비밀번호
             <span
-              class="MuiFormLabel-asterisk-24"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
             >
-               *
+               
+              *
             </span>
           </label>
           <div
-            class="MuiInputBase-root-38 MuiInput-root-25 MuiInput-underline-29 MuiInputBase-formControl-39 MuiInput-formControl-26 MuiInputBase-adornedStart-42 MuiInputBase-adornedEnd-43"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd"
           >
             <div
-              class="MuiInputAdornment-root-55 MuiInputAdornment-positionStart-57"
+              class="MuiInputAdornment-root MuiInputAdornment-positionStart"
             >
               <svg
                 class="svg-icon icon-filledLock || ''"
@@ -296,16 +308,19 @@ Object {
             </div>
             <input
               aria-invalid="false"
-              class="MuiInputBase-input-48 MuiInput-input-33 MuiInputBase-inputType-51 MuiInput-inputType-36 MuiInputBase-inputAdornedStart-53 MuiInputBase-inputAdornedEnd-54"
+              class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd"
+              data-testid="password"
               name="password"
               required=""
+              tabindex="password"
               type="password"
               value=""
             />
             <div
-              class="MuiInputAdornment-root-55 MuiInputAdornment-positionEnd-58"
+              class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
             >
               <button
+                aria-label="visibilityOff"
                 style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;"
                 type="button"
               >
@@ -330,17 +345,17 @@ Object {
           </div>
         </div>
         <button
-          class="MuiButtonBase-root-86 MuiButton-root-60 MuiButton-contained-71 MuiButton-containedPrimary-72 MuiButton-raised-74 MuiButton-raisedPrimary-75 MuiButton-sizeSmall-83 login-btn FormButton-button-59"
+          class="MuiButtonBase-root MuiButton-root login-btn FormButton-button-69 MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall"
           tabindex="0"
           type="submit"
         >
           <span
-            class="MuiButton-label-61"
+            class="MuiButton-label"
           >
             로그인
           </span>
           <span
-            class="MuiTouchRipple-root-89"
+            class="MuiTouchRipple-root"
           />
         </button>
       </form>
@@ -348,18 +363,19 @@ Object {
         class="keep-me-logged-in"
       >
         <label
-          class="MuiFormControlLabel-root-96"
+          class="MuiFormControlLabel-root"
         >
           <span
-            class="MuiButtonBase-root-86 MuiIconButton-root-110 MuiSwitchBase-root-106 MuiCheckbox-root-100 MuiCheckbox-colorSecondary-105"
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-102 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
             data-testid="checkbox-login"
           >
             <span
-              class="MuiIconButton-label-115"
+              class="MuiIconButton-label"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root-116"
+                class="MuiSvgIcon-root"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -369,18 +385,18 @@ Object {
                 />
               </svg>
               <input
-                class="MuiSwitchBase-input-109"
+                class="PrivateSwitchBase-input-105"
                 data-indeterminate="false"
                 type="checkbox"
-                value="keepLoggedIn"
+                value="keepUserLoggedIn"
               />
             </span>
             <span
-              class="MuiTouchRipple-root-89"
+              class="MuiTouchRipple-root"
             />
           </span>
           <span
-            class="MuiTypography-root-125 MuiTypography-body1-134 MuiFormControlLabel-label-99"
+            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
           >
             로그인 상태 유지
           </span>

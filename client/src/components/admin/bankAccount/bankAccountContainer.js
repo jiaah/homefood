@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 /* --- Components --- */
 import IconButton from '../../../shared/form/iconButton';
 import Paper from '../../../shared/paper';
-import Loader from '../../../shared/loader';
+import Loader from '../../loader';
 import BankTable from './bankTable';
 import { bankAccountTableHeadColumns } from '../../../data/data';
 import {
@@ -63,7 +63,7 @@ const BankAccountContainer = ({
   };
 
   return (
-    <div className="container r--w-80">
+    <div className="bank--container">
       <h2>유청 은행 계좌</h2>
       <div className="paper-label-box justify-end">
         <div className="flex">

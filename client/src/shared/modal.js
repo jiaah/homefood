@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 /* --- Components --- */
 import IconButton from './form/iconButton';
-import Loader from './loader';
+import Loader from '../components/loader';
 
 const Modal = Loader({
   loader: () =>
@@ -15,7 +15,7 @@ const styles = theme => ({
   paper: {
     position: 'absolute',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(4),
     display: 'block',
     overflow: 'scroll',
     maxHeight: '500px',
