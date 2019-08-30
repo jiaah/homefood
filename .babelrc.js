@@ -5,7 +5,10 @@ module.exports = {
     [
       'env',
       {
-        useBuiltIns: 'usage',
+        useBuiltIns: 'entry',
+        targets: {
+          uglify: true,
+        },
         loose: true,
         modules: isTest ? 'commonjs' : false,
         debug: !isTest,

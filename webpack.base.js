@@ -61,7 +61,9 @@ module.exports = {
             options: {
               indent: 'postcss',
               plugins: [
-                autoprefixer(),
+                autoprefixer({
+                  browsers: ['last 1 versions', 'ie >= 11', '> 1%', 'not dead'],
+                }),
               ],
               sourceMap: devMode,
             },
